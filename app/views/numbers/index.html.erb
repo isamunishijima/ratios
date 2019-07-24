@@ -1,0 +1,46 @@
+<h2>Ratios</h2>
+<div =class="row">
+  <div class="col-md-12">
+    <table class="table-striped">
+      <thead class="thead-light"> 
+        <tr>
+          <td>Name</td>
+          <td>Current ratio</td>
+          <td>Quick ratio</td>
+          <td>Debt ratio</td>
+          <td>Debt to equity ratio</td>
+          <td>Equity ratio</td>
+          <td>Asset turnover</td>
+          <td>Inventory turnover</td>
+          <td>Receivable turnover</td>
+          <td>Payable turnover</td>
+          <td>Profit margin</td>
+          <td>Return on investment</td>
+          <td>Return on Equity</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @numbers.each do |number| %>
+        <tr>
+          <td><%= number.name %></td>
+          <td><%= number.current_asset / number.current_liability %></td>
+          <td><%= (number.cash + number.receivable) / current_liability %></td>
+          <td><%= number.total_debt / number.total_asset %></td>
+          <td><%= number.total_debt / number.total_equity%></td>
+          <td><%= number.total_equity / number.total_asset%></td>
+          <td><%= number.sale / number.total_asset %></td>
+          <td><%= number.cost_of_goods_sold / number.inventory %></td>
+          <td><%= number.sale / number.receivable %></td>
+          <td><%= number.cost_of_goods_sold / number.payable %></td>
+          <td><%= number.net_profit / number.sale %></td>
+          <td><%= number.net_profit / number.total_asset %></td>
+          <td><%= number.net_profit / number.total_equity %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div>
+      <%= link_to "insert dada", new_number_path %>
+    </div>
+  </div>
+</div>

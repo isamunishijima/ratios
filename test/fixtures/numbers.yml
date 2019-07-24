@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  current_assets: 1
+  cash: 1
+  receivable: 1
+  inventory: 1
+  current_liability: 1
+  payable: 1
+  total_liability: 1
+  total_debt: 1
+  long_term_debt: 1
+  short_term_debt: 1
+  total_equity: 1
+  sale: 1
+  EBIT: 1
+  net_profit: 1
+  cost_of_goods_sold: MyString
+
+two:
+  name: MyString
+  current_assets: 1
+  cash: 1
+  receivable: 1
+  inventory: 1
+  current_liability: 1
+  payable: 1
+  total_liability: 1
+  total_debt: 1
+  long_term_debt: 1
+  short_term_debt: 1
+  total_equity: 1
+  sale: 1
+  EBIT: 1
+  net_profit: 1
+  cost_of_goods_sold: MyString
