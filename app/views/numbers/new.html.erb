@@ -1,7 +1,89 @@
-<h1>Numbers#new</h1>
-<p>Find me in app/views/numbers/new.html.erb<div>
   <dev class="col-md-4 offset-md-4">
-    <h2 class="text-center">New question</h2>
-    <%= render 'form' %>
+    <h2 class="text-center">New data</h2>
+      <%= form_with model: @number, local: true do |f| %>
+        <div class="form-group">
+          <label>Name</label>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+            
+        <div class="form-group">
+          <label>cash</label>
+          <%= f.text_field :cash, class: "form-control" %>
+        </div>
+        
+        <div class="form-group">
+          <label>receivable</label>
+          <%= f.text_field :receivable, class: "form-control" %>
+        </div>
+        
+        <div class="form-group">
+          <label>inventory</label>
+          <%= f.text_field :inventory, class: "form-control" %>
+        </div>
+        
+        <div class="form-group">
+          <label>current asset</label>
+          <%= f.text_field :current_asset, class: "form-control" %>
+        </div>
+        
+        <div class="form-group">
+          <label>total asset</label>
+          <%= f.text_field :total_asset, class: "form-control" %>
+        </div>
+        
+        <div class="form-group">
+          <label>payable</label>
+          <%= f.text_field :payable, class: "form-control" %>
+        </div>
+        
+        <div class="form-group">
+          <label>total liability</label>
+          <%= f.text_field :total_liability, class: "form-control" %>
+        </div>
+        
+        <div class="form-group">
+          <label>short term debt</label>
+          <%= f.text_field :short_term_debt, class: "form-control" %>
+        </div>
+        
+        <div class="form-group">
+          <label>long term debt</label>
+          <%= f.text_field :long_term_debt, class: "form-control" %>
+        </div>
+        
+        <div class="form-group">
+          <label>total debt</label>
+          <%= f.text_field :total_debt, class: "form-control" %>
+        </div>
+        
+        <div class="form-group">
+          <label>total equity</label>
+          <%= f.text_field :total_equity, class: "form-control" %>
+        </div>
+        
+        <div class="form-group">
+          <label>sale</label>
+          <%= f.text_field :sale, class: "form-control" %>
+        </div>
+        
+        <div class="form-group">
+          <label>cost of goods sold</label>
+          <%= f.text_field :cost_of_goods_sold, class: "form-control" %>
+        </div>
+        
+        <div class="form-group">
+          <label>EBIT</label>
+          <%= f.text_field :EBIT, class: "form-control" %>
+        </div>
+        
+        <div class="form-group">
+          <label>net profit</label>
+          <%= f.text_field :net_profit, class: "form-control" %>
+        </div>
+        
+        <div class="text-center">
+          <%= f.submit "Save", class: "btn btn-primary" %>
+        </div>
+      <% end %>
   </dev>
 </div></p>
