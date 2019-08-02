@@ -2,7 +2,10 @@ class NumbersController < ApplicationController
   def index
     @numbers = Number.all
   end
-
+  
+  def show
+  end
+  
   def new
     @number = Number.new
   end
@@ -13,14 +16,28 @@ class NumbersController < ApplicationController
       redirect_to root_path, notice: "Success!"
     else
       flash[:alert] = "Save error!"
-      # render :new
+      render :new
     end
   end
 
   def edit
+    @number = Number.find(params[:id])
   end
-
-  def show
+  
+  def update
+    @number = Number.find(params[:id])
+    if @number.update(number_params)
+      redirect_to root_path, notice:"Success!"
+    else
+      render :edit
+      flash[:alert] = "Error!"
+    end
+  end
+  
+  def destroy
+    @number = Number.find_by(params[:id])
+    @number.destroy
+    redirect_to root_path, notice:"Success!"
   end
   
   private

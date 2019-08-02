@@ -17,24 +17,52 @@
           <td>Profit margin</td>
           <td>Return on investment</td>
           <td>Return on Equity</td>
+          <td>Menu</td>
         </tr>
       </thead>
       <tbody>
         <% @numbers.each do |number| %>
         <tr>
           <td><%= number.name %></td>
-          <td><%= number.current_asset / number.current_liability %></td>
-          <td><%= (number.cash + number.receivable) / current_liability %></td>
-          <td><%= number.total_debt / number.total_asset %></td>
-          <td><%= number.total_debt / number.total_equity%></td>
-          <td><%= number.total_equity / number.total_asset%></td>
-          <td><%= number.sale / number.total_asset %></td>
-          <td><%= number.cost_of_goods_sold / number.inventory %></td>
-          <td><%= number.sale / number.receivable %></td>
-          <td><%= number.cost_of_goods_sold / number.payable %></td>
+          <% if number.current_asset? && number.current_liability? %>
+          <td><%= number.current_asset / number.current_liability.to_f %></td>
+          <% end %>
+          <% if number.cash? && number.receivable? && number.current_liability? %>
+          <td><%= (number.cash + number.receivable) / number.current_liability.to_f %></td>
+          <% end %>
+          <% if number.total_debt? && number.total_asset? %>
+          <td><%= number.total_debt / number.total_asset.to_f %></td>
+          <% end %>
+          <% if number.total_debt? && number.total_equity? %>
+          <td><%= number.total_debt / number.total_equity.to_f %></td>
+          <% end %>
+          <% if number.total_equity? && number.total_asset? %>
+          <td><%= number.total_equity / number.total_asset.to_f %></td>
+          <% end %>
+          <% if number.sale? && number.total_asset? %>
+          <td><%= number.sale / number.total_asset.to_f %></td>
+          <% end %>
+          <% if number.cost_of_goods_sold? && number.inventory? %>
+          <td><%= number.cost_of_goods_sold / number.inventory.to_f %></td>
+          <% end %>
+          <% if number.sale? && number.receivable? %>
+          <td><%= number.sale / number.receivable.to_f %></td>
+          <% end %>
+          <% if number.cost_of_goods_sold? && number.payable? %>
+          <td><%= number.cost_of_goods_sold / number.payable.to_f %></td>
+          <% end %>
+          <% if number.net_profit? && number.sale? %>
           <td><%= number.net_profit / number.sale %></td>
-          <td><%= number.net_profit / number.total_asset %></td>
-          <td><%= number.net_profit / number.total_equity %></td>
+          <% end %>
+          <% if number.net_profit? && number.total_asset? %>
+          <td><%= number.net_profit / number.total_asset.to_f %></td>
+          <% end %>
+          <% if number.net_profit? && number.total_equity? %>
+          <td><%= number.net_profit / number.total_equity.to_f %></td>
+          <% end %>
+          <td>[<%= link_to "Edit", edit_number_path(number) %>]
+          
+          [<%= link_to "Delete", number_path(number), method: :delete, data:{ confirm: "Are you sure?"} %>]</td>
         </tr>
         <% end %>
       </tbody>
